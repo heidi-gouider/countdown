@@ -1,0 +1,29 @@
+header {
+	background-color: #F29191;
+	height: 100px;
+	box-shadow: 0 5px 5px 0 grey;
+}
+
+/*.countdownContainer {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	text-align: center;
+	background: white;
+	transform: translateX(-50%) translateY(-50%);
+}*/
+
+
+body {
+	background-color: lightgrey;
+}
+
+h1{
+	text-align: center;
+	font-family: 'Secular One', sans-serif;
+	font-size: 6em;
+}
+section[id="countdown"] {
+	display: flex;
+	justify-content: space-between;
+}
