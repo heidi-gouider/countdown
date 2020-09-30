@@ -14,7 +14,7 @@ header {
 }*/
 
 
-body {
+body{
 	background-color: lightgrey;
 }
 
@@ -23,7 +23,32 @@ h1{
 	font-family: 'Secular One', sans-serif;
 	font-size: 6em;
 }
-section[id="countdown"] {
+
+main > p{
+	font-size: 2em;
+}
+
+section[id="countdown"]{
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 0 auto;
+
+}
+
+section[id="countdown"] > span{
+	user-select: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;
+	
+}
+
+section[id="countdown"] > span::after{
+	content: attr(data-unit-name);
+	height: 50px;
+	position: absolute;
+	bottom: -50px;
+
 }

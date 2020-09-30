@@ -9,9 +9,9 @@ class CountDown {
 			hour: 3600000,
 			day: 86400000,
 			month: 2505600000
-		};
+		}
+		
 	}
-
 	init() {
 
 		Object.freeze(this.milliseconds_to);
@@ -23,7 +23,9 @@ class CountDown {
 		//this.updateCountdown
 		this.updateCountDown();
 
-		const countdown = setInterval(() => !this.countdown_completed ? this.updateCountDown() : clearInterval(countdown), 60000)
+		const countdown = setInterval(() => !this.countdown_completed ? this.updateCountDown() : clearInterval(countdown), 60000);
+
+		this.countdown.init();
 	}
 
 	createCountDownElements() {
@@ -35,9 +37,9 @@ class CountDown {
 			<span data-unit="day" data-unit-name="jours"></span>
 			<span data-unit="hour" data-unit-name="heures"></span>
 			<span data-unit="minute" data-unit-name="minutes"></span>
-		`
+		`;
 
-		this.parent_element.appendChild(this.section_element); //TypeError: Unable to get property {x} of undefined or null reference (Edge)
+		this.parent_element.appendChild(this.section_element); 
 	}
 
 	updateCountDown() {
@@ -54,11 +56,19 @@ class CountDown {
 		
 		let value = null;
 
-		switch(unit) {
-			case "month": value = Math.floor(milliseconds_remaining / this.milliseconds_to.month); break;
-			case "day": value = Math.floor((milliseconds_remaining % milliseconds_to.month) / this.milliseconds_to.day); break;
-			case "hour": value = Math.floor((milliseconds_remaining % milliseconds_to.day) / this.milliseconds_to.hour); break;
-			case "minute": value = Math.floor((milliseconds_remaining % milliseconds_to.hour) / this.milliseconds_to.minute); break;
+		switch (unit) {
+			case 'month':
+				value = Math.floor(milliseconds_remaining / this.milliseconds_to.month);
+				break;
+			case 'day':
+				value = Math.floor((milliseconds_remaining % milliseconds_to.month) / this.milliseconds_to.day);
+				break;
+			case 'hour':
+				value = Math.floor((milliseconds_remaining % milliseconds_to.day) / this.milliseconds_to.hour);
+				break;
+			case 'minute':
+				value = Math.floor((milliseconds_remaining % milliseconds_to.hour) / this.milliseconds_to.minute);
+				break;
 		}
 
 		//console.log(value > 9 ? value : "0" + value);
@@ -66,14 +76,12 @@ class CountDown {
 
 	}
 
-	var CountDown = new CountDown( {
-
-		end_countdown_date: "2021-03-22T09:30",
-		parent_element: document.querySelector ('main')  /*parent_element: document.body.querySelector('main')*/
-	})
-
-	countdown.init()
 
 
 }
 
+var countdown = new CountDown ({
+
+		end_countdown_date: "2021-03-22T09:30",
+		parent_element: document.querySelector ('main')  /*parent_element: document.body.querySelector('main')*/
+	})
