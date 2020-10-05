@@ -28,20 +28,21 @@ class CountDown {
 
 		const countdown = setInterval(() => !this.countdown_completed ? this.updateCountDown() : clearInterval(countdown), 60000);
 	}
-
-	createCountDownElements() {
-
-		this.section_element = document.createElement('section');
-		this.section_element.id = "countdown"; 
-		this.section_element.textContent = `
-			<span data-unit="month" data-unit-name="mois"></span>
-			<span data-unit="day" data-unit-name="jours"></span>
-			<span data-unit="hour" data-unit-name="heures"></span>
-			<span data-unit="minute" data-unit-name="minutes"></span>
+																			//insérer un noeud avant le première enfant ou apprès le dernière enfant
+	createCountDownElements() {	
+													// pour ça je peux utiliser les méthodes append()et prepend()
+		this.section_element = document.createElement('section');			//j'ajoute un noeud soit dans le noeud 'main' soit dans 'section' 
+		this.section_element.id = "countdown"; 								// et si dans 'section' comprend le noeud id countdown
+		this.section_element.innerHTML = `
+			<span data-unit="month" data-unit-name="Mois"></span>
+			<span data-unit="day" data-unit-name="Jours"></span>
+			<span data-unit="hour" data-unit-name="Heures"></span>
+			<span data-unit="minute" data-unit-name="Minutes"></span>
 		`;
 		console.log(2);
 		console.log(this.parent_element)
 		this.parent_element.appendChild(this.section_element); 
+
 	}
 
 	updateCountDown() {
@@ -59,18 +60,14 @@ class CountDown {
 		let value = null;
 
 		switch (unit) {
-			case 'month':
-				value = Math.floor(milliseconds_remaining / this.milliseconds_to.month);
-				break;
-			case 'day':
-				value = Math.floor((milliseconds_remaining % milliseconds_to.month) / this.milliseconds_to.day);
-				break;
-			case 'hour':
-				value = Math.floor((milliseconds_remaining % milliseconds_to.day) / this.milliseconds_to.hour);
-				break;
-			case 'minute':
-				value = Math.floor((milliseconds_remaining % milliseconds_to.hour) / this.milliseconds_to.minute);
-				break;
+			case 'month': value = Math.floor(milliseconds_remaining / this.milliseconds_to.month); break;
+				
+			case 'day': value = Math.floor((milliseconds_remaining % this.milliseconds_to.month) / this.milliseconds_to.day); break;
+				
+			case 'hour': value = Math.floor((milliseconds_remaining % this.milliseconds_to.day) / this.milliseconds_to.hour); break;
+			
+			case 'minute': value = Math.floor((milliseconds_remaining % this.milliseconds_to.hour) / this.milliseconds_to.minute); break;
+				
 		}
 
 		//console.log(value > 9 ? value : "0" + value);
@@ -82,8 +79,11 @@ class CountDown {
 
 }
 
+//var id = document.querySelector('id')
+	//id.children
+
 var countdown = new CountDown (
 		end_countdown_date= "2021-03-22T09:30",
-		parent_element= document.querySelector ('main')  /*parent_element: document.body.querySelector('main')*/
+		parent_element= document.querySelector ('main')
 	)
 countdown.init();

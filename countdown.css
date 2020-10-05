@@ -1,36 +1,59 @@
+
+
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+	background-color: gainsboro;
+}
+
+.container {
+	min-width: 100%;
+	min-height: 100%;
+	position: relative;
+	margin: 0, auto;
+}
+
 header {
+	
 	background-color: #F29191;
-	height: 100px;
-	box-shadow: 0 5px 5px 0 grey;
+	height: 200px;
+	width: 100%;
+	box-shadow: 0 10px 10px 0 grey;
+	
 }
 
-/*.countdownContainer {
-	position: absolute;
-	left: 50%;
-	top: 50%;
+h1 {
 	text-align: center;
-	background: white;
-	transform: translateX(-50%) translateY(-50%);
-}*/
+	font-family: 'Anton', sans-serif;
+	font-size: 8.5em; 
+	margin-top: 0;
+	padding-top: 30px;
 
+	
+	
+}
 
-body{
+main {
+
 	background-color: lightgrey;
+	height: 800px;
+	min-width: 700px;
+	margin-right: 50px;
+	margin-left: 50px;
+	margin-top: 70px;
+	padding-bottom: 350px;
+	position: relative;
 }
 
-h1{
-	text-align: center;
-	font-family: 'Secular One', sans-serif;
-	font-size: 6em;
-}
-
-main > p{
-	font-size: 2em;
+section {
+	background: whitesmoke;
+	height: 300px;
 }
 
 section[id="countdown"]{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
+	align-items: center;
 	flex-flow: row wrap;
 	margin: 0 auto;
 
@@ -41,15 +64,65 @@ section[id="countdown"] > span{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 3em;
+	font-size: 4.5em;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bolder;
+	background: #F1F1F1;
+	width: 120px;
+	height: 120px;
+	margin-top: -30px;
+	border-radius: 50px;
 	position: relative;
 	
 }
 
 section[id="countdown"] > span::after{
+	font-size: 0.5em;
+	font-weight: bold;
 	content: attr(data-unit-name);
+	display: flex;
 	height: 50px;
+	font-weight: bold;
+	justify-content: center;
+	align-items: center;
 	position: absolute;
-	bottom: -50px;
-
+	bottom: -80px;
 }
+
+
+footer {
+	display: flex;
+	justify-content: space-between;
+
+	width: 100%;
+	background: whitesmoke;
+	height: 250px;
+	bottom: 0;
+	position: absolute;
+	
+}
+
+.info {
+	margin-left: 20px;
+}
+
+.nom {
+	font-family: 'Anton', sans-serif;
+	font-weight: bolder;
+	font-size: 3em;
+}
+
+.lien {
+	font-size: 2.3em;
+	font-weight: bolder;
+}
+
+img {
+	
+	width: 300px;
+	margin-top: 30px;
+}
+
+
+
+
