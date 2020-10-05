@@ -10,6 +10,9 @@ class CountDown {
 			day: 86400000,
 			month: 2505600000
 		}
+		console.log(1);
+		console.log(parent_element);
+		console.log(end_countdown_date);
 		
 	}
 	init() {
@@ -24,8 +27,6 @@ class CountDown {
 		this.updateCountDown();
 
 		const countdown = setInterval(() => !this.countdown_completed ? this.updateCountDown() : clearInterval(countdown), 60000);
-
-		this.countdown.init();
 	}
 
 	createCountDownElements() {
@@ -38,7 +39,8 @@ class CountDown {
 			<span data-unit="hour" data-unit-name="heures"></span>
 			<span data-unit="minute" data-unit-name="minutes"></span>
 		`;
-
+		console.log(2);
+		console.log(this.parent_element)
 		this.parent_element.appendChild(this.section_element); 
 	}
 
@@ -80,8 +82,8 @@ class CountDown {
 
 }
 
-var countdown = new CountDown ({
-
-		end_countdown_date: "2021-03-22T09:30",
-		parent_element: document.querySelector ('main')  /*parent_element: document.body.querySelector('main')*/
-	})
+var countdown = new CountDown (
+		end_countdown_date= "2021-03-22T09:30",
+		parent_element= document.querySelector ('main')  /*parent_element: document.body.querySelector('main')*/
+	)
+countdown.init();

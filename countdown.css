@@ -31,7 +31,7 @@ main > p{
 section[id="countdown"]{
 	display: flex;
 	justify-content: space-between;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
 	margin: 0 auto;
 
 }
@@ -42,6 +42,7 @@ section[id="countdown"] > span{
 	justify-content: center;
 	align-items: center;
 	font-size: 3em;
+	position: relative;
 	
 }
 
